@@ -42,4 +42,13 @@ Keys.set("C-;") { CodeTree.display_menu("- Buffers.current/") }
   Keys.set("M-#{i}") { Bookmarks.go("$#{i}") }
 end
 
-Keys.set("<tab>") { dabbrev_completion nil }
+Keys.do_expand { $el.dabbrev_completion nil }
+
+# $el.define_key :ruby_mode_map, "\t" do
+#   $el.dabbrev_completion nil
+# end
+
+Projects.listing = { :bt => '/Users/keith/workspace/braintree-gateway',
+                     :expenses => '/Users/keith/workspace/expenses',
+                     :xiki => '/Users/keith/workspace/xiki' }
+
