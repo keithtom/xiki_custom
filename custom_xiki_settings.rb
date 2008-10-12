@@ -28,11 +28,11 @@ styles = { :notes_h1  => "666699",
            :notes_h1s => "449688",
            :notes_h1n => "eeaa33"}
 
-# styles.each do |k, v|
-#   header = v.gsub(/../) {|c| (c.to_i(16) + "33".to_i(16)).to_s(16)}
-#   Styles.define k,                  :face => 'arial', :size => h1_size, :fg => 'ffffff', :bg => v, :bold =>  true
-#   Styles.define "#{k}_pipe".to_sym, :face => 'arial', :size => h1_size, :fg => v,        :bg => v, :bold =>  true
-# end
+styles.each do |k, v|
+  header = v.gsub(/../) {|c| (c.to_i(16) + "33".to_i(16)).to_s(16)}
+  Styles.define k,                  :face => 'arial', :size => h1_size, :fg => 'ffffff', :bg => v, :bold =>  true
+  Styles.define "#{k}_pipe".to_sym, :face => 'arial', :size => h1_size, :fg => v,        :bg => v, :bold =>  true
+end
 
 
 # Added for john compatibility
@@ -42,7 +42,7 @@ Keys.set("C-;") { CodeTree.display_menu("- Buffers.current/") }
   Keys.set("M-#{i}") { Bookmarks.go("$#{i}") }
 end
 
-Keys.do_expand { $el.dabbrev_completion nil }
+# Keys.do_expand { $el.dabbrev_completion nil }
 
 # $el.define_key :ruby_mode_map, "\t" do
 #   $el.dabbrev_completion nil
@@ -52,3 +52,6 @@ Projects.listing = { :bt => '/Users/keith/workspace/braintree-gateway',
                      :expenses => '/Users/keith/workspace/expenses',
                      :xiki => '/Users/keith/workspace/xiki' }
 
+class Bookmarks
+  BOOKMARK_LOG = "/tmp/bookmark_log.notes"
+end
